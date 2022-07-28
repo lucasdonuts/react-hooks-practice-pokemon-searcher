@@ -30,13 +30,17 @@ function PokemonPage() {
       .then( newPokemon => setPokemonList( oldList => [ newPokemon, ...oldList ]) )
   }
 
+  const handleSearch = (searchString) => {
+    setSearchQuery(searchString);
+  }
+
   return (
     <Container>
       <h1>Pokemon Searcher</h1>
       <br />
       <PokemonForm addNewPokemon={ addNewPokemon } />
       <br />
-      <Search searchQuery={ searchQuery } setSearchQuery={ setSearchQuery } />
+      <Search handleSearch={ handleSearch } />
       <br />
       <PokemonCollection pokemonList={ pokemonToDisplay } />
     </Container>
